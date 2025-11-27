@@ -1,0 +1,26 @@
+<odoo>
+    <record id="ktq_view_order_form_inherit_ghtk" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.ghtk</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Thêm group thông tin GHTK -->
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <group string="Thông tin Giao Hàng Tiết Kiệm" name="ghtk_integration">
+                    <field name="ktq_ghtk_tracking_code"/>
+                    <field name="ktq_ghtk_status"/>
+                </group>
+            </xpath>
+
+            <!-- Thêm nút Gửi GHTK -->
+            <xpath expr="//header/button[@name='action_confirm']" position="after">
+                <button name="action_send_to_ghtk" string="Gửi GHTK" type="object"
+                    class="btn-primary"
+                    help="Gửi đơn hàng này đến Giao Hàng Tiết Kiệm"
+                    invisible="state not in ['sent', 'sale'] or ktq_ghtk_tracking_code != False"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

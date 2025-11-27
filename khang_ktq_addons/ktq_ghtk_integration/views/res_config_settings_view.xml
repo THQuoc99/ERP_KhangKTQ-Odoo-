@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ktq_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ghtk</field>
+        <field name="model">res.config.settings</field>
+        
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        
+        <field name="arch" type="xml"><xpath expr="//app" position="inside">
+                <div class="app_settings_block" data-string="Giao Hàng Tiết Kiệm" string="Giao Hàng Tiết Kiệm" data-key="ktq_ghtk_integration">
+                    <h2>Cấu hình GHTK</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="ktq_ghtk_api_token"/>
+                                <div class="text-muted">
+                                    Nhập API Token GHTK của bạn
+                                </div>
+                                <field name="ktq_ghtk_api_token" password="True"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
